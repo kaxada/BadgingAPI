@@ -1,12 +1,13 @@
 const mongoose = require("mongoose");
-require("dotenv").config();
+const dotenv = require("dotenv");
+dotenv.config();
 const User = require("./models/User");
 const Repo = require("./models/Repo");
 
 // Connect to MongoDB
 const dbconnect = async () => {
   mongoose
-    .connect(process.env.DB_URL, {
+    .connect(process.env.MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })

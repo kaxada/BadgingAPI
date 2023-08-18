@@ -30,7 +30,12 @@ app.post("/api/repos-to-badge", routes.reposToBadge);
 
 app.get("/api/badgedRepos", routes.badgedRepos);
 
-(async () => {
+//Get user by name, email and username
+app.get("/user", (req, res) => {
+  res.send(
+    `User ${req.params.user.name}, ${req.params.user.email}, ${req.params.user.username}`
+  );
+})(async () => {
   try {
     await dbconnect().then(() => {
       app.listen(process.env.PORT, () => {
